@@ -1,0 +1,106 @@
+P, TD, INPUT, TEXTAREA, BR, SELECT { font-size: 12; font-family: "Arial", "Verdana" }
+H1 { font-size: 24; font-family: "Arial", "Verdana" }
+
+A.menu { font-size: 12; font-family: "Arial", "Verdana"; color: "#000000"; text-decoration: none; font-weight: none }
+A.menu:hover { font-size: 12; font-family: "Arial", "Verdana"; color: "#FFFFFF"; text-decoration: none; font-weight: none }
+A.menu2 { font-size: 12; font-family: "Arial", "Verdana"; color: "#000000"; text-decoration: none; font-weight: none }
+A.menu2:hover { font-size: 12; font-family: "Arial", "Verdana"; color: "#CCCCCC"; text-decoration: none; font-weight: none }
+A.lien { font-size: 12; font-family: "Arial", "Verdana"; color: "#000000"; text-decoration: none; font-weight: none }
+A.lien:hover { font-size: 12; font-family: "Arial", "Verdana"; color: "#000000"; text-decoration: underline; font-weight: none }
+
+
+TR.orgas_top { background-color="#6279B9" }
+TR.orgas { background-color="#7D93D5" }
+TR.vehicules_top { background-color="#48E991" }
+TR.vehicules { background-color="#6BFFA9" }
+TR.lieux_top { background-color="#30B71E" }
+TR.lieux { background-color="#51D23D" }
+TR.talkies_top { background-color="#F2F048" }
+TR.talkies { background-color="#FDFA8E" }
+TR.categories_top { background-color="#F1B83B" }
+TR.categories { background-color="#FFC754" }
+TR.taches_top { background-color="#EE6D3A" }
+TR.taches { background-color="#FF8354" }
+TR.plannings_top { background-color="#E34121" }
+TR.plannings { background-color="#FF5E3A" }
+TR.equipes_top { background-color="#6296B7" }
+TR.equipes { background-color="#7CB0D2" }
+TR.activites_top { background-color="#8B71CC" }
+TR.activites { background-color="#A78AE8" }
+TR.plannings_eq_top { background-color="#AF65A1" }
+TR.plannings_eq { background-color="#CC7FBC" }
+TR.users_top { background-color="#B8B6B6" }
+TR.users { background-color="#D2CFCF" }
+
+TR.over { background-color="#E9E9E9" }
+
+
+.blanc {
+background:white;
+}
+.noir {
+background:black;
+}
+.orange {
+background:#f90;
+}
+.orangeclaire {
+background:#fc6;
+}
+.rose {
+background:#f9c;
+}
+.vert {
+background:#6c6;
+}
+.bleu {
+background:#3cc;
+}
+.violet {
+background:#96f;
+}
+.rouge {
+background:#FF0000;
+}
+
+.bleuclaire {
+background:#ccf;
+}
+
+#frise
+	{
+	width:100%;
+	text-align:left;	
+	}
+
+.separateur_horaire
+	{
+	background:black;
+	width:1px;
+	height:4px;
+	float:left;
+	}
+
+.titre_barre
+	{
+	float:left;
+	width:15%;
+	margin-bottom:5px;
+	text-align:left;
+	}
+
+.barre
+	{
+	background-color:#C0C0C0;
+	height:20px;
+	margin-bottom:5px;
+	float:left;
+	}
+	
+.creneau
+	{
+	width:6px;
+	float:left;
+	display:block;
+	text-decoration:none;
+	}

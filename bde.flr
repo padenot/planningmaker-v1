@@ -1,0 +1,155 @@
+movie '/Volumes/Dude2/var/www/planning_maker/bde.swf' {
+// flash 6, total frames: 4, frame rate: 24 fps, 180x400 px, compressed
+
+  frame 1 {
+    function creerlemenu() {
+      nouveauxml(xmlnavig);
+      creermenus(donnenavigation);
+    }
+
+    function listerlien(c) {
+      j = 0;
+      while (j < c.length) {
+        lien = c[j].attributes;
+        listelien[j] = lien;
+        ++j;
+      }
+      return listelien;
+    }
+
+    function traitenavigation(xmlnavig) {
+      listerubrique = new Array();
+      ar = new Array();
+      ar = xmlnavig.childNodes;
+      i = 0;
+      while (i < ar.length) {
+        if (ar[i].nodeName == 'rubrique') {
+          rubrique = ar[i].attributes;
+          listerubrique[2 * i] = rubrique;
+          c = new Array();
+          listelien = new Array();
+          if (rubrique.fin == '0') {
+            listerubrique[2 * i + 1] = listerlien(ar[i].childNodes);
+          } else {
+            listerubrique[2 * i + 1] = 0;
+          }
+        }
+        ++i;
+      }
+      return listerubrique;
+    }
+
+    function nouveauxml(xml) {
+      a = new Array();
+      a = xml.childNodes;
+      if (a[0].nodeName == 'navigation') {
+        donnenavigation = traitenavigation(a[0]);
+      }
+    }
+
+    function creermenus(d) {
+      i = 0;
+      while (i < d.length / 2) {
+        duplicateMovieClip(_root.type, d[2 * i].nom, 1 + i);
+        _root[d[2 * i].nom]._y = 18 * i;
+        _root[d[2 * i].nom]._x = 0;
+        _root[d[2 * i].nom].rubrique.backgroundColor = unescape(d[2 * i].couleur);
+        if (d[2 * i].bold == 0) {
+          _root[d[2 * i].nom].rubrique.background = true;
+          _root[d[2 * i].nom].nomrubrique = unescape(d[2 * i].nom);
+        } else {
+          _root[d[2 * i].nom].nomrubrique = '<b>' + unescape(d[2 * i].nom) + '</b>';
+          _root[d[2 * i].nom].nomrubrique.border = true;
+          _root[d[2 * i].nom].rubrique.autoSize = true;
+        }
+        _root[d[2 * i].nom].liens = d[2 * i + 1];
+        _root[d[2 * i].nom].couleurlien = unescape(d[2 * i].couleurlien);
+        _root[d[2 * i].nom].ferme = 1;
+        _root[d[2 * i].nom].link = d[2 * i].url;
+        ++i;
+      }
+    }
+
+    function creerlien(e, pos, col) {
+      j = 0;
+      while (j < e.length) {
+        duplicateMovieClip(_root.type, ['lien' + j], 100 * j);
+        _root['lien' + j]._x = 90;
+        _root['lien' + j]._y = 18 * j + pos;
+        _root['lien' + j].nomrubrique = unescape(e[j].nom);
+        _root['lien' + j].rubrique.background = true;
+        _root['lien' + j].rubrique.backgroundColor = col;
+        _root['lien' + j].ferme = 0;
+        _root['lien' + j].link = unescape(e[j].url);
+        ++j;
+      }
+    }
+
+    function fermeturemenu() {
+      j = 0;
+      while (j < 10) {
+        duplicateMovieClip(_root.type, a, 100 * j);
+        ++j;
+      }
+    }
+
+    xmlnavig = new XML();
+    xmlnavig.ignoreWhite = true;
+    xmlnavig.load('bde.xml');
+  }
+
+  movieClip 4  {
+
+    frame 1 {
+      stop();
+    }
+
+    frame 29 {
+      gotoAndPlay(2);
+    }
+  }
+
+  movieClip 5  {
+
+    frame 1 {
+      if (this.ferme == 1) {
+        this.onRollOver = function () {
+          _root.fermeturemenu();
+          _root.creerlien(this.liens, this._y, this.couleurlien);
+          this.clign.gotoAndPlay(2);
+        };
+
+      } else {
+        this.onRollOver = function () {
+          this.clign.gotoAndPlay(2);
+        };
+
+      }
+      this.onRelease = function () {
+        if (this.link != '') {
+          getURL(this.link, '');
+        }
+      };
+
+      this.onRollOut = function () {
+        this.clign.gotoAndPlay(1);
+      };
+
+    }
+  }
+
+  frame 2 {
+    if (xmlnavig.loaded) {
+      gotoAndPlay(4);
+    }
+  }
+
+  frame 3 {
+    gotoAndPlay(2);
+  }
+
+  frame 4 {
+    creerlemenu();
+    stop();
+  }
+}

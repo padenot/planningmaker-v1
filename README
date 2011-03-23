@@ -1,0 +1,5 @@
+An old code base that is put under versionning, since I need to do several change to maintain it.
+
+The code is quite ugly, since its php flat. It has been written ages ago, and it seem to work (sometimes).
+
+An newer application is in developpement (see https://github.com/padenot/PlanningMaker).

@@ -1,0 +1,6 @@
+P, TD, INPUT, TEXTAREA, BR, SELECT { font-size: 12; font-family: "Times New Roman"}
+H1 { font-size: 22; font-family: "Times New Roman" }
+
+A { font-size: 12; font-family: "Times New Roman"; color: "#000000"; text-decoration: none; font-weight: none }
+A:hover { font-size: 12; font-family: "Times New Roman"; color: "#000000"; text-decoration: none; font-weight: none }
+
